@@ -1,0 +1,38 @@
+<div>
+Cat Litter = <span id=keywordcount>0</span>
+</div>
+
+<script type=text/javascript>
+
+
+var arr = document.getElementsByTagName('li')
+var newarr = []
+
+
+function addtoarray () {
+
+    for (var i=0; i<arr.length; i++){
+        newarr.push(arr[i].innerText.toLowerCase());
+     
+    };
+}
+
+function countkeyword (keyword) {
+    var count=0;
+    for (var i=0; i<newarr.length; i++){
+        if (newarr[i].search(keyword)!=-1){
+            count++;
+        }
+    }
+    return count;
+}
+
+function checkkeyword() {
+    addtoarray();
+    
+    document.getElementById('keywordcount').innerHTML = countkeyword('keyword');
+}
+
+window.onload = checkkeyword();
+
+</script>
